@@ -1,14 +1,9 @@
 {
-    "contact": [
-        {
-            "id": "2635b407-f64c-4c36-bbbe-bbf50cd87314",
-            "name": "asma",
-            "email": "aa@gmail.com"
-        },
-        {
-            "id": "d984b909-f7c9-4c37-907f-110fdfb0c0e8",
-            "name": ",wekkw",
-            "email": "w@gmail.com"
-        }
-    ]
+  "contacts": [
+    {
+      "id": "0c53a3bf-1e29-4677-8e5d-917690704324",
+      "name": "khushi",
+      "email": "lw@gmail.com"
+    }
+  ]
 }
