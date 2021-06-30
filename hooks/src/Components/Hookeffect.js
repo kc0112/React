@@ -5,9 +5,12 @@ function Hookeffect() {
     console.log('render')
 
     // code inside useEffect runs when array arg changes
-    useEffect((){
+    useEffect(()=>{
         console.log('you changed resourceType');
-        fetch(`https://jsonplaceholder.typicode.com/${resourceType}`).then(response=>response.json()).then(json=>console.log(json))
+        fetch(`https://jsonplaceholder.typicode.com/${resourceType}`).
+            then(response => response.json())
+            .then(json => console.log(json));
+        
     },/*array arg*/[resourceType])
 
     /*useEffect((){
