@@ -1,12 +1,26 @@
-import React,{useRef} from 'react'
-import ContactCard from "./ContactCard"
-import {Link} from 'react-router-dom'
+import React, { useRef } from 'react';
+import ContactCard from "./ContactCard";
+import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
 
 function ContactList(props) {
     const inputEl = useRef("")
 
     const deleteContactHandler = (id) => {
-        props.getContactId(id);
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this contact",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                props.getContactId(id);
+              swal("Poof! Contact has been deleted!", {
+                icon: "success",
+              });
+            }
+          });
     };
 
     const getSearchTerm = (e) => {
