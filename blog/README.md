@@ -2,6 +2,7 @@
 
 ## Getting started
 - npm i @material-ui/core
+- npm i markdown-to-jsx
 
 
 ## References
