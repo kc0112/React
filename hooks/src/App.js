@@ -1,17 +1,10 @@
-import Hookstate from './Components/Hookstate.js'
-import Hookcontext from './Components/Hookcontext'
-import Hookeffect from './Components/Hookeffect'
-import Hookmemo from './Components/Hookmemo'
-import Hookref from './Components/Hookref'
-
-
+import React from 'react';
+import Ue1 from './useEffect/UseEffect_Clean_up/Uec1'
 function App() {
   return (
     <>
-    
-   
-      <Hookeffect/>
-      </>
+      <Ue1/>
+    </>
   );
 }
 

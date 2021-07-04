@@ -14,9 +14,10 @@
 - hooks - useState,useRef,useEffect
 
 ## API
-- https://opentdb.com/api_config.php -> quiz questions
 - https://opentdb.com/api.php?amount=10&category=17&difficulty=medium -> quiz ques(category,difficulty set)
 
 ## References
 - https://material-ui.com/ 
+- https://flaviocopes.com/how-to-shuffle-array-javascript/ -> shuffling elements in js array
+- https://opentdb.com/api_config.php -> quiz questions
 

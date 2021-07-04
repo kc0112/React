@@ -7,6 +7,7 @@ const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
   const [options, setOptions] = useState();
   const [currQues, setCurrQues] = useState(0);
 
+  // set options whenever a new question displays
   useEffect(() => {
     setOptions(
       questions &&
@@ -19,6 +20,7 @@ const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
 
   console.log(questions);
 
+  // options random order me ae (data me [0]->correct ans,[1-3]->wrong answers)
   const handleShuffle = (options) => {
     return options.sort(() => Math.random() - 0.5);
   };
@@ -32,10 +34,9 @@ const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
           <div className="quizInfo">
             <span>{questions[currQues].category}</span>
             <span>
-              {/* {questions[currQues].difficulty} */}
               Score : {score}
             </span>
-          </div>
+          </div >
           <Question
             currQues={currQues}
             setCurrQues={setCurrQues}
@@ -51,7 +52,7 @@ const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
         <CircularProgress
           style={{ margin: 100 }}
           color="inherit"
-          size={150}
+          size={100}
           thickness={1}
         />
       )}
