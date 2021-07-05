@@ -1,12 +1,13 @@
-import './App.css';
+
 import React, { useState } from 'react';
 import Header from './components/Header'
 import Loginc from './components/Loginc'
 import Signup from './components/Signup'
-import Contact from './components/Contact';
+import Contact from './components/Contact/Contact';
 import TodoList from './components/Task/TodoList'
 import { BrowserRouter as Router,Route,Switch} from 'react-router-dom';
-var cors = require('cors');
+// var cors = require('cors');
+import axios from 'axios'
 
 
 function App() {
@@ -19,13 +20,29 @@ function App() {
     setLoginDetails(detail);
   }
 
-  const setSignKeys = (detail) => {
+  const setSignKeys = async(detail) => {
     console.log(detail)
     setSignupDetails(detail);
-  }
 
-  console.log("login", loginDetails);
-  console.log("sign",signUpDetails);
+    await axios.post("http://127.0.0.1:8000/user/signup/", detail)
+      .then(response => console.log("RES",response))
+      .catch(err => console.log("ERROR: ", err))
+    
+  //     async function Name() {
+  //       let response = () => {
+  //         return new Promise(function(resolve, reject) {
+  //           fetch('http://127.0.0.1:8000/user/signup/', detail).then(response => {
+  //             resolve(response);
+  //           });
+  //         });
+  //       };
+  //       let responseData = await response();
+  //       console.log(responseData.data);
+  // }
+  // Name()
+    
+    console.log("djd")
+  }
 
 
   return (

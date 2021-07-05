@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { uuid } from "uuidv4";
 
 const CreateTask = ({ modal, toggle, save }) => {
     const [taskName, setTaskName] = useState('');
@@ -22,7 +21,7 @@ const CreateTask = ({ modal, toggle, save }) => {
         let taskObj = {}
         taskObj["name"] = taskName
         taskObj["description"] = description
-        taskObj["uid"] = uuid();
+        taskObj["uid"] = new Date().getTime().toString();
         taskObj["is_completed"] = true;
 
         save(taskObj)

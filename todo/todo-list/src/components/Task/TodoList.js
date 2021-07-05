@@ -2,19 +2,31 @@ import React, { useEffect, useState } from "react";
 import CreateTask from "./modals/CreateTask";
 import Card from "./Card";
 import axios from "axios"
+import './Task.css'
 
 
 const TodoList = () => {
     const [modal, setModal] = useState(false);
     const [taskList, setTaskList] = useState([]);
-    console.log("task",taskList);
-    useEffect(async() => {
-        // let arr = localStorage.getItem("taskList");
-        let resp = await axios.get('https://0b1a38ea6ad3.ngrok.io/api/');
-        let obj = (resp.data);
-        setTaskList(obj);
-        
+    console.log("task", taskList);
+    
+    useEffect(() => {
+        async function fetchData() {
+            let resp = await axios.get('https://0b1a38ea6ad3.ngrok.io/api/');
+            let obj = (resp.data);
+            setTaskList(obj);
+        }
+        fetchData();
     }, []);
+
+    // useEffect(async() => {
+        // let arr = localStorage.getItem("taskList");
+        
+    //     let resp = await axios.get('https://0b1a38ea6ad3.ngrok.io/api/');
+    //     let obj = (resp.data);
+    //     setTaskList(obj);
+        
+    // }, []);
 
     const deleteTask = async (obj,index) => {
         // local storage

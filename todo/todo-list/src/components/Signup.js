@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { Grid,Paper, Avatar, TextField, Button, Typography} from '@material-ui/core'
+import { Grid,Paper, Avatar, TextField, Button} from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { Link } from 'react-router-dom';
+
+
 
 // class User(models.Model):
 // username = models.CharField(max_length=200, default='')
@@ -19,8 +20,6 @@ export default class SignUp extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            first_name: "",
-            last_name: "",
             username: "",
             email:"",
             phone:"",
@@ -35,11 +34,8 @@ export default class SignUp extends Component {
     onSubmit = (e) => {
         e.preventDefault();
 
-        if (this.state.first_name === "" || this.state.last_name === "" || this.state.username === "" || this.state.email === "" || this.state.phone === "" || this.state.password === "" || this.state.password2 === "") {
+        if ( this.state.username === "" || this.state.email === "" || this.state.phone === "" || this.state.password === "" || this.state.password2 === "") {
             alert("All fields are mandatory");
-        }
-        if (!this.state.email.includes("@")||!this.state.email.includes(".com")) {
-            alert("please fill right details")
         }
         else {
             this.props.setKeys(this.state);
@@ -56,8 +52,8 @@ export default class SignUp extends Component {
                     <Avatar style={this.avatarStyle}><LockOutlinedIcon/></Avatar>
                     <h2>Sign Up</h2>
                 </Grid>
-                    <TextField label='first_name' placeholder='Enter First Name' type="text" onChange={(e)=>this.setState({first_name:e.target.value})}  fullWidth required  />
-                    <TextField label='last_name' placeholder='Enter Last Name' type='text' onChange={(e) => this.setState({ last_name: e.target.value })} fullWidth required />
+                    {/* <TextField label='first_name' placeholder='Enter First Name' type="text" onChange={(e)=>this.setState({first_name:e.target.value})}  fullWidth required  />
+                    <TextField label='last_name' placeholder='Enter Last Name' type='text' onChange={(e) => this.setState({ last_name: e.target.value })} fullWidth required /> */}
                     <TextField label='username' placeholder='Enter Username' type='text' onChange={(e) => this.setState({ username: e.target.value })} fullWidth required />
                     <TextField label='email' placeholder='Enter Email' type='email' onChange={(e) => this.setState({ email: e.target.value })} fullWidth required />
                     <TextField label='phone' placeholder='Enter phone' type='text' onChange={(e) => this.setState({ phone: e.target.value })} fullWidth required />
