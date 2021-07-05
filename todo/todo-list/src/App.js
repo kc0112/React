@@ -6,39 +6,44 @@ import Signup from './components/Signup'
 import Contact from './components/Contact';
 import TodoList from './components/Task/TodoList'
 import { BrowserRouter as Router,Route,Switch} from 'react-router-dom';
-
+var cors = require('cors');
 
 
 function App() {
 
-  const [detail, setDetail] = useState([]);
+  const [loginDetails, setLoginDetails] = useState([]);
+  const [signUpDetails,setSignupDetails] = useState([]);
 
-  const setKeys = (details) => {
-    console.log(details)
-    setDetail(details);
+  const setLogKeys = (detail) => {
+    console.log(detail)
+    setLoginDetails(detail);
   }
+
+  const setSignKeys = (detail) => {
+    console.log(detail)
+    setSignupDetails(detail);
+  }
+
+  console.log("login", loginDetails);
+  console.log("sign",signUpDetails);
+
 
   return (
     <>
       <Router>
-        <Header details={ detail} />
+        <Header name={loginDetails.username} />
         <Switch>
           <Route path="/" exact render={(props) => (
-            <Loginc {...props}  setKeys={setKeys}/>
+            <Loginc {...props}  setKeys={setLogKeys}/>
           )} />
 
         <Route path="/signup" render={(props) => (
-          <Signup {...props} setKeys={setKeys}/>
+          <Signup {...props} setKeys={setSignKeys}/>
           )} />
           
-          <Route path="/home" render={(props) => (
-            <TodoList {...props} details={ detail}/>
-          )} />
+          <Route path="/home" component={TodoList} />
 
-          <Route path="/contact" render={(props) => (
-            <Contact {...props} details={ detail}/>
-          )} />
-
+          <Route path="/contact" component={Contact} />
 
         </Switch>
       </Router>

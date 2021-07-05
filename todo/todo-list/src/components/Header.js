@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar(props) {
   const classes = useStyles();
-  let name = props.details.name;
+  let name = props.name;
   console.log(name,props);
   return (
     <div className={classes.root}>

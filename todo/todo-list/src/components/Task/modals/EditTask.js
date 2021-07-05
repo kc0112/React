@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-// import { uuid } from "uuidv4";
+import { uuid } from "uuidv4";
 
 const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
     const [taskName, setTaskName] = useState('');
@@ -16,17 +16,18 @@ const EditTaskPopup = ({modal, toggle, updateTask, taskObj}) => {
     }
 
     useEffect(() => {
+        console.log("uid of task",taskObj);
         setTaskName(taskObj.name)
         setDescription(taskObj.description)
     },[])
 
     const handleUpdate = (e) => {
         e.preventDefault();
-    
-        let taskObj = {}
+        let uid = taskObj.uid;
+        taskObj = {}
         taskObj["name"] = taskName
         taskObj["description"] = description
-        // taskObj["id"] = uuid();
+        taskObj["uid"] = uid;
         taskObj["is_completed"] = true;
 
         updateTask(taskObj)
