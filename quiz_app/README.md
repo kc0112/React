@@ -1,15 +1,21 @@
 # Quiz App
 
+
+
+https://user-images.githubusercontent.com/56497318/127534112-7f80a886-b4f6-4b38-b032-40dc2e65dcec.mp4
+
+
+
 ## Dependencies
 - npm i @material-ui/core
 - npm i axios
 - npm i @material-ui/icons
 
 ## Key Learning 
-- saving and retrieving contacts - local storage, json file via axios
+- Creating UI with MaterialUI
 - routing
+- fecthing data via axios
 - pagination
-- unique id generation
 - sending data between child and parent
 - hooks - useState,useRef,useEffect
 
@@ -18,6 +24,5 @@
 
 ## References
 - https://material-ui.com/ 
-- https://flaviocopes.com/how-to-shuffle-array-javascript/ -> shuffling elements in js array
 - https://opentdb.com/api_config.php -> quiz questions
 
